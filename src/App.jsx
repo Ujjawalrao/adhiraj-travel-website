@@ -114,6 +114,27 @@ function GlobalContactButtons({ onOpenEnquiry }) {
 }
 
 function Footer() {
+
+  const socialLinks = [
+  {
+    name: "Facebook",
+    url: "#",
+  },
+  {
+    name: "Twitter",
+    url: "#",
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/adhirajgrandholidays",
+  },
+  {
+    name: "LinkedIn",
+    url: "#",
+  },
+];
+
+
   return (
     <footer className="border-t border-slate-300/60 bg-[#011D4F] text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-2 lg:grid-cols-4">
@@ -163,17 +184,19 @@ function Footer() {
         </div>
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Follow Us</h3>
-          <div className="flex flex-wrap gap-3 text-sm">
-            {["Facebook", "Twitter", "Instagram", "LinkedIn"].map((network) => (
-              <a
-                key={network}
-                href="#"
-                className="rounded-full bg-slate-200/80 px-4 py-2 text-slate-900 transition hover:bg-[#C77D0F] hover:text-slate-950"
-              >
-                {network}
-              </a>
-            ))}
-          </div>
+         <div className="flex flex-wrap gap-3 text-sm">
+  {socialLinks.map((network) => (
+    <a
+      key={network.name}
+      href={network.url}
+      target={network.name === "Instagram" ? "_blank" : undefined}
+      rel={network.name === "Instagram" ? "noopener noreferrer" : undefined}
+      className="rounded-full bg-slate-200/80 px-4 py-2 text-slate-900 transition hover:bg-[#C77D0F] hover:text-slate-950"
+    >
+      {network.name}
+    </a>
+  ))}
+</div>
         </div>
       </div>
       <div className="border-t border-slate-300/60 py-6 text-center text-sm text-slate-600">

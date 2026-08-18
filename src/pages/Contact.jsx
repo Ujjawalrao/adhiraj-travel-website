@@ -277,7 +277,7 @@ function Contact() {
             </div>
             <div className="relative w-full grayscale-[15%] contrast-[105%] transition-all duration-500 hover:grayscale-0">
               <iframe
-                src="https://maps.google.com/maps?q=Muzaffarnagar,%20Uttar%20Pradesh%20-%20251001&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3473.518658653908!2d77.6881214!3d29.4720628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c1b59be7caf05%3A0xa3a6b115a23e349d!2sAdhiraj%20Grand%20Holidays%20-%20Tour%20%26%20Travel%20Company!5e0!3m2!1sen!2sin!4v1787058922868!5m2!1sen!2sin"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}

@@ -103,6 +103,8 @@ import RoyalRajasthanT from "../assets/Rajasthan-img/Royal Rajasthan .png"
 import heroImage1 from "../assets/homebanner/1.jpeg";
 import heroImage2 from "../assets/homebanner/2.jpeg";
 import heroImage3 from "../assets/homebanner/3.jpeg";
+import heroImage4 from "../assets/homebanner/4.png";
+import heroImage5 from "../assets/homebanner/5.png";
 
 
 export const DataContext = createContext();
@@ -112,7 +114,7 @@ export const DataProvider = ({ children }) => {
     {
       id: 1,
       image:
-       heroImage1,
+       heroImage4,
       label: "Discover your next adventure",
       heading: "Discover Next Adventure",
       description:
@@ -122,22 +124,12 @@ export const DataProvider = ({ children }) => {
     {
       id: 2,
       image:
-        heroImage2,
+        heroImage5,
       label: "Luxury escapes, unforgettable stays",
       heading: "Travel in Comfort and Style",
       description:
         "Experience premium travel packages that combine luxury, culture, and relaxation.",
       buttonText: "Browse Luxury Tours",
-    },
-    {
-      id: 3,
-      image:
-        heroImage3,
-      label: "Adventure-packed journeys across India",
-      heading: "Experience Every Moment",
-      description:
-        "From mountain peaks to coastal retreats, find the perfect itinerary for your next escape.",
-      buttonText: "Start Your Journey",
     },
   ];
 
@@ -4967,7 +4959,7 @@ export const DataProvider = ({ children }) => {
       image:
         "https://i.pinimg.com/736x/1b/b9/71/1bb9717b9c33e231a1c7b7c412e42d5c.jpg",
       title: "Beach Bliss",
-      description: "Golden beaches, water sports, and vibrant nightlife in Goa",
+      description: "Golden beaches and vibrant nightlife in Goa",
       price: 7999,
       rating: 4.8,
       location: "Goa",
