@@ -105,7 +105,7 @@ const faqs = [
       </Helmet>
 
       {/* ── HERO SLIDER ── */}
-<section className="relative h-[40vh] lg:h-[75vh] w-full overflow-hidden bg-slate-950 text-white">
+<section className="relative h-[16vh] lg:h-[75vh] w-full overflow-hidden bg-slate-950 text-white">
     {/* ── CINEMATIC BACKGROUND IMAGE CAROUSEL ── */}
     <AnimatePresence mode="popLayout">
       <motion.div
@@ -165,6 +165,7 @@ const faqs = [
       ))}
     </div>
     {/* ── WAVE DIVIDER ── */}
+    {/* if you want to change style go in component */}
       <WaveBottomSVG />
   </section>
 <TravelMarquee />
