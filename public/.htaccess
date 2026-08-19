@@ -1,0 +1,6 @@
+RewriteEngine On
+
+# Let the React app handle client-side routes while preserving real files.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

@@ -2,12 +2,25 @@ import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 dotenv.config({ override: true });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || "*";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, "dist");
+
+const escapeHtml = (value) =>
+  String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 
 const loadMailConfig = () => {
   dotenv.config({ override: true });
@@ -84,23 +97,23 @@ app.post("/api/enquiry", async (req, res) => {
         <tbody>
           <tr style="border-bottom: 1px solid #e2e8f0;">
             <td style="padding: 12px 0; font-weight: 700; color: #0f172a; width: 160px;">Name</td>
-            <td style="padding: 12px 0; color: #334155;">${name}</td>
+            <td style="padding: 12px 0; color: #334155;">${escapeHtml(name)}</td>
           </tr>
           <tr style="border-bottom: 1px solid #e2e8f0;">
             <td style="padding: 12px 0; font-weight: 700; color: #0f172a;">Phone</td>
-            <td style="padding: 12px 0; color: #334155;">${phone}</td>
+            <td style="padding: 12px 0; color: #334155;">${escapeHtml(phone)}</td>
           </tr>
           <tr style="border-bottom: 1px solid #e2e8f0;">
             <td style="padding: 12px 0; font-weight: 700; color: #0f172a;">Email</td>
-            <td style="padding: 12px 0; color: #334155;">${email}</td>
+            <td style="padding: 12px 0; color: #334155;">${escapeHtml(email)}</td>
           </tr>
           <tr style="border-bottom: 1px solid #e2e8f0;">
             <td style="padding: 12px 0; font-weight: 700; color: #0f172a;">Destination</td>
-            <td style="padding: 12px 0; color: #334155;">${destination}</td>
+            <td style="padding: 12px 0; color: #334155;">${escapeHtml(destination)}</td>
           </tr>
           <tr>
             <td style="padding: 12px 0; font-weight: 700; color: #0f172a; vertical-align: top;">Tour Details</td>
-            <td style="padding: 12px 0; color: #334155; white-space: pre-wrap;">${tourDetails}</td>
+            <td style="padding: 12px 0; color: #334155; white-space: pre-wrap;">${escapeHtml(tourDetails)}</td>
           </tr>
         </tbody>
       </table>
@@ -114,7 +127,7 @@ app.post("/api/enquiry", async (req, res) => {
   const mailOptions = {
     from: config.emailFrom || config.smtpUser,
     to: config.emailTo,
-    subject: `New Travel Enquiry from ${name}`,
+    subject: `New Travel Enquiry from ${String(name).replace(/[\r\n]+/g, " ")}`,
     html: htmlContent,
   };
 
@@ -129,8 +142,15 @@ app.post("/api/enquiry", async (req, res) => {
   }
 });
 
+// Serve the Vite build after API routes so client-side routes work in production.
+app.use(express.static(distPath));
+
 app.use((req, res) => {
-  res.status(404).json({ error: "Not found" });
+  if (req.path.startsWith("/api/")) {
+    return res.status(404).json({ error: "Not found" });
+  }
+
+  return res.sendFile(path.join(distPath, "index.html"));
 });
 
 app.use((error, req, res, next) => {

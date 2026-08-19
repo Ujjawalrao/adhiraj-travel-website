@@ -207,7 +207,7 @@ function Contact() {
                   {
                     icon: <FiPhone className="h-5 w-5 text-[#002F7F]" />,
                     title: 'Phone Support',
-                    details: ['+91 97173 24311', '+91 9310157844']
+                    details: ['+91 92176 64311', '+91 9310157844']
                   },
                   {
                     icon: <FiMail className="h-5 w-5 text-[#002F7F]" />,

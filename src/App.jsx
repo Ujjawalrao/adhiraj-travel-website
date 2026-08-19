@@ -79,14 +79,14 @@ function GlobalContactButtons({ onOpenEnquiry }) {
     <>
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+919717324311"
+          href="tel:+919217664311"
           className="inline-flex items-center justify-center rounded-full bg-[#002f7f] text-white px-5 py-3 text-sm font-semibold shadow-lg shadow-[#C77D0F]/20 transition hover:bg-[#C77D0F]"
         >
           <FiPhone className="mr-2 h-4 w-4" />
           Call Us
         </a>
         <a
-          href="https://wa.me/919717324311"
+          href="https://wa.me/919217664311"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800"
@@ -172,10 +172,10 @@ function Footer() {
           </a>
 
           <a
-            href="tel:+919717324311"
+            href="tel:+919217664311"
             className="block text-sm leading-6 hover:underline"
           >
-            Phone: +91 97173 24311
+            Phone: +91 92176 64311
           </a>
           <p className="text-sm leading-6">
             Address: Office No 32, Shamli Road, Near Budhana Mod Muzaffarnagar,
